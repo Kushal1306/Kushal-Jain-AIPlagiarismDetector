@@ -44,20 +44,24 @@ function Dashboard() {
 
   return (
     <div className="w-full min-h-screen flex flex-col items-center p-6 bg-white">
-      <div className="w-full max-w-4xl border border-dashed border-neutral-200 dark:border-neutral-800 rounded-lg p-4 bg-black">
+      <div className="w-full max-w-5xl border border-dashed border-neutral-200 dark:border-neutral-800 rounded-lg p-4 bg-black">
         <div className="flex items-center justify-center">
           <FileUpload onChange={handleFileUpload} />
         </div>
+        <div className="flex justify-center">
         <Button
           onClick={generateReport}
           disabled={!file || isLoading}
-          className="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300"
+          className="mt-4 w-1/2  bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300"
         >
           {isLoading ? "Generating..." : "Generate Report"}
         </Button>
+
+        </div>
+       
       </div>
 
-      <div className="w-full max-w-4xl mt-6 border border-dashed border-neutral-200 rounded-lg p-6 bg-white">
+      <div className="w-full max-w-5xl mt-6 border border-dashed border-neutral-200 rounded-lg p-6 bg-white">
         {reportData && (
           <>
             <PlagiarismReport data={reportData.report} />
