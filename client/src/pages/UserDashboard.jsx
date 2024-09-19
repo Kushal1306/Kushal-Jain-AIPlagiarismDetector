@@ -28,7 +28,7 @@ function Dashboard() {
     formData.append("file", file);
 
     try {
-      const response = await axios.post("https://kushal-ai-plagiarism-detector-backend-gxpme944x.vercel.app/user/generate-report", formData, {
+      const response = await axios.post("https://kushal-ai-plagiarism-detector-backend.vercel.app/user/generate-report", formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         }
