@@ -11,10 +11,11 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 const corsOptions = {
-    origin:process.env.FRONTEND_URL,
+    origin: '*', 
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
 };
+
 
 app.use(cors(corsOptions));
 app.use(mainRouter);
