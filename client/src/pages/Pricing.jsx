@@ -12,13 +12,13 @@ const Pricing = () => {
       name: "Basic",
       monthlyPrice: 9.99,
       yearlyPrice: 99.99,
-      features: ["100 quizzes/month", "5 languages", "Basic analytics", "Email support"]
+      features: ["10 document uploads", "5 languages", "Basic analytics", "Email support"]
     },
     {
       name: "Pro",
       monthlyPrice: 29.99,
       yearlyPrice: 299.99,
-      features: ["Unlimited quizzes", "All languages", "Advanced analytics", "Priority support", "Custom branding"]
+      features: ["Unlimited uploads", "All languages", "Advanced analytics", "Priority support", "Custom branding"]
     }
   ];
   

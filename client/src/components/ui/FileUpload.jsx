@@ -62,7 +62,7 @@ export const FileUpload = ({ onChange }) => {
           ref={fileInputRef}
           id="file-upload-handle"
           type="file"
-          accept=".pdf, .txt"
+          accept=".pdf, .txt, .docx"
           onChange={(e) => handleFileChange(Array.from(e.target.files || []))}
           className="hidden"
         />

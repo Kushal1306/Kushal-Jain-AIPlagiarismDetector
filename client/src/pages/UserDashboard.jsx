@@ -19,10 +19,11 @@ function Dashboard() {
   const generateReport = async (e) => {
     e.preventDefault();
     if (!file) {
-      alert("Please upload the file");
+      alert("Please upload a file");
       return;
     }
     setIsLoading(true);
+    
     const formData = new FormData();
     formData.append("file", file);
 
@@ -32,6 +33,7 @@ function Dashboard() {
           "Content-Type": "multipart/form-data"
         }
       });
+      console.log(response.data);
       setReportData(response.data);
     } catch (error) {
       console.error("Error generating report:", error);
@@ -42,24 +44,35 @@ function Dashboard() {
 
   return (
     <div className="w-full min-h-screen flex flex-col items-center p-6 bg-white">
-      <div className="w-full max-w-none grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <div className="md:col-span-1 border border-dashed border-neutral-200 dark:border-neutral-800 rounded-lg p-4 bg-black flex flex-col justify-between">
-          <div className="flex-grow flex items-center justify-center">
-            <FileUpload onChange={handleFileUpload} />
-          </div>
-          <Button 
-            onClick={generateReport} 
-            disabled={!file || isLoading}
-            className="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300"
-          >
-            {isLoading ? "Generating..." : "Generate Report"}
-          </Button>
+      <div className="w-full max-w-4xl border border-dashed border-neutral-200 dark:border-neutral-800 rounded-lg p-4 bg-black">
+        <div className="flex items-center justify-center">
+          <FileUpload onChange={handleFileUpload} />
         </div>
-        <div className="md:col-span-2 border border-dashed border-neutral-200 rounded-lg p-6 bg-white">
-          {reportData && (
-            <PlagiarismReport data={reportData} />
-          )}
-        </div>
+        <Button
+          onClick={generateReport}
+          disabled={!file || isLoading}
+          className="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300"
+        >
+          {isLoading ? "Generating..." : "Generate Report"}
+        </Button>
+      </div>
+
+      <div className="w-full max-w-4xl mt-6 border border-dashed border-neutral-200 rounded-lg p-6 bg-white">
+        {reportData && (
+          <>
+            <PlagiarismReport data={reportData.report} />
+            <div className="mt-6">
+              <h2 className="text-xl font-semibold mb-4">Suggestions to decrease plagiarism by OpenAI</h2>
+              <ul className="list-disc ml-6 space-y-2">
+                {reportData.suggestions.map((suggestion, index) => (
+                  <li key={index} className="text-gray-700">
+                    {suggestion.suggestion}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

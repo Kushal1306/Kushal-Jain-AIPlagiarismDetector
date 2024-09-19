@@ -7,12 +7,12 @@ const Footer = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4">QuizAI</h3>
-              <p>Revolutionizing quiz creation with AI</p>
+              <h3 className="text-2xl font-bold mb-4">AnswerAI</h3>
+              <p>Revolutionizing Plagiarism Detection with our AI Powered-Tool</p>
             </div>
             <div>
               <h4 className="text-xl font-semibold mb-4">Contact Us</h4>
-              <p className="flex items-center mb-2"><Mail className="mr-2" size={18} /> info@quizai.com</p>
+              <p className="flex items-center mb-2"><Mail className="mr-2" size={18} /> info@answerai.com</p>
               <p className="flex items-center"><Phone className="mr-2" size={18} /> +1 (123) 456-7890</p>
             </div>
             <div>
@@ -26,7 +26,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="mt-8 text-center">
-            <p>&copy; 2024 QuizAI. All rights reserved.</p>
+            <p>&copy; 2024 AnswerAI. All rights reserved.</p>
           </div>
         </div>
       </footer>

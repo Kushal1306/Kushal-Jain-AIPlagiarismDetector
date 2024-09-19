@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/Card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/ui/Table";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../components/ui/Collapsible";
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import Button from "../components/ui/Button";
 
@@ -69,16 +68,18 @@ function PlagiarismReport({ data }) {
           <Table>
             <TableHeader>
               <TableRow>
+                <TableHead >#</TableHead>
                 <TableHead>Source</TableHead>
                 <TableHead>Words</TableHead>
                 <TableHead>Score</TableHead>
-                <TableHead>Actions</TableHead>
+                <TableHead>Text</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {data.sources.map((source, index) => (
                 <React.Fragment key={index}>
                   <TableRow>
+                    <TableCell>{index + 1}</TableCell>
                     <TableCell>
                       <a href={source.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
                         {source.source}
@@ -99,7 +100,7 @@ function PlagiarismReport({ data }) {
                   </TableRow>
                   {expandedSources.includes(index) && (
                     <TableRow>
-                      <TableCell colSpan={4} className="bg-muted">
+                      <TableCell colSpan={5} className="bg-muted">
                         <div className="p-2 text-sm">
                           <h4 className="font-semibold mb-2">Plagiarized Text:</h4>
                           <p>{source.plagiarismFound[0].sequence}</p>
@@ -114,17 +115,7 @@ function PlagiarismReport({ data }) {
         </CardContent>
       </Card>
 
-      <Card className="md:col-span-2">
-        <CardHeader>
-          <CardTitle>Scan Information</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p><strong>Scan Time:</strong> {new Date(data.scanInformation.scanTime).toLocaleString()}</p>
-          <p><strong>Input Type:</strong> {data.scanInformation.inputType}</p>
-          <p><strong>Credits Used:</strong> {data.credits_used}</p>
-          <p><strong>Credits Remaining:</strong> {data.credits_remaining}</p>
-        </CardContent>
-      </Card>
+
     </div>
   );
 }

@@ -23,42 +23,44 @@ const Feature = ({ title, description, icon }) => {
 export const Features = () => {
   const features = [
     {
-      title: "Multilingual Quiz Creation",
-      description: "Create engaging quizzes in multiple languages, perfect for global learning.",
-      icon: <Globe className="h-8 w-8 text-black" />
-    },
-    {
-      title: "Diverse Question Formats",
-      description: "Generate multiple-choice, true/false, and open-ended questions for varied assessments.",
-      icon: <FileText className="h-8 w-8 text-black" />
-    },
-    {
-      title: "Versatile Input Sources",
-      description: "Create quizzes from text, PDF, or URL inputs for maximum flexibility.",
+      title: "Lightning Fast and Powered by AI",
+      description: "Experience rapid plagiarism detection and content analysis, all powered by advanced AI algorithms for immediate results.",
       icon: <Zap className="h-8 w-8 text-black" />
     },
     {
-      title: "Adaptive Difficulty Levels",
-      description: "Automatically adjust question difficulty for optimal learning challenges.",
+      title: "Multilingual Support",
+      description: "Analyze and detect plagiarism in multiple languages, ensuring accuracy and efficiency for global content creators.",
+      icon: <Globe className="h-8 w-8 text-black" />
+    },
+    {
+      title: "Detailed Report and Recommendations",
+      description: "Receive in-depth plagiarism reports with actionable recommendations for improving content originality.",
       icon: <BarChart2 className="h-8 w-8 text-black" />
     },
     {
-      title: "Global Quiz Sharing",
-      description: "Distribute quizzes worldwide to foster collaboration and knowledge exchange.",
+      title: "Versatile Input Sources",
+      description: "Upload  PDF, docx or text formats for comprehensive plagiarism checks across various formats.",
+      icon: <FileText className="h-8 w-8 text-black" />
+    },
+    {
+      title: "Adaptive Suggestions",
+      description: "Receive tailored paraphrasing and citation suggestions to enhance content originality.",
+      icon: <BarChart2 className="h-8 w-8 text-black" />
+    },
+    {
+      title: "Global Content Integration",
+      description: "Check content against sources worldwide to ensure thorough plagiarism detection across global databases.",
       icon: <Share2 className="h-8 w-8 text-black" />
     },
-    {
-      title: "Advanced Analytics",
-      description: "Gain insights into student performance to improve learning strategies.",
-      icon: <BarChart2 className="h-8 w-8 text-black" />
-    }
+    
   ];
+
 
   return (
     <section className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-6xl font-bold text-center mb-20 text-black">
-          Powerful Features
+          Our Features
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
           {features.map((feature, index) => (

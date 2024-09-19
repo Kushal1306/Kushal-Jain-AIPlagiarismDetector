@@ -1,11 +1,20 @@
 "use client";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Cover } from "../components/ui/Cover";
 import { AnimatedTooltip } from "../components/ui/Trusted";
 import {StarIcon} from 'lucide-react'
 import Button from "../components/ui/Button";
 
 export default function Component() {
+
+  const navigate=useNavigate();
+
+  const handleButton=()=>{
+        console.log("hii");
+        navigate("/dashboard");      
+  };
+
   const people = [
     {
       id: 1,
@@ -61,7 +70,8 @@ export default function Component() {
       </h2>
    
       <div className="mb-12">
-        <Button 
+        <Button
+          onClick={handleButton}
           className="text-lg md:text-xl font-medium px-8 py-3 bg-orange-500 text-white hover:bg-orange-600 transition-colors duration-300"
         >
           Upload Your Document
