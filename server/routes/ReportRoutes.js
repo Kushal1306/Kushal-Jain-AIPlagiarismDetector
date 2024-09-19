@@ -39,7 +39,9 @@ reportRoute.post('/generate-report', upload.single('file'), async (req, res) => 
       return res.status(400).json({ error: 'No file uploaded' });
     }
 
-    const extractedText = await extractText(req.file);
+    // const extractedText = await extractText(req.file);
+    const extractedText = await extractText(req.file.buffer);
+
     console.log("The extracted text is:", extractedText);
 
     const response = await axios.post('https://api.gowinston.ai/v2/plagiarism', 
