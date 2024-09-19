@@ -40,7 +40,7 @@ reportRoute.post('/generate-report', upload.single('file'), async (req, res) => 
     }
 
     // const extractedText = await extractText(req.file);
-    const extractedText = await extractText(req.file.buffer);
+    const extractedText = await extractText(req.file.buffer, req.file.mimetype);
 
     console.log("The extracted text is:", extractedText);
 
